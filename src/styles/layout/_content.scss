@@ -1,0 +1,80 @@
+$side-margin: 6.75vw;
+$gutter: 3.75vw;
+
+.banner {
+    padding: 8.8vw $side-margin 3.5vw #{$side-margin + $gutter};
+    line-height: 0.82;
+}
+
+.content {
+    padding: $side-margin * 1.5;
+
+    @include breakpoint(tablet) {
+        padding: 3.5vw $side-margin;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.col {
+    @include breakpoint(tablet) {
+        flex: 1;
+        padding-top: 0.25em;
+        padding-left: $gutter;
+    }
+}
+
+.logo-variation {
+    padding: $side-margin;
+    width: 100%;
+    height: auto;
+
+    @include breakpoint(mobile-only) {   
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    @include breakpoint(tablet) {
+        padding: 0 $gutter 5vw $gutter;
+        width: 50%;        
+    }
+
+    &-ctn {
+        @include breakpoint(mobile-only) {   
+            padding: $gutter;
+            min-height: 80vw;
+            position: relative;
+        }
+
+        @include breakpoint(tablet) {    
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            max-height: 101vw;
+
+            &::before,
+            &::after {
+                content: "";
+                display: block;
+                width: 50%;
+            }
+
+            &::after {
+                order: 9;
+            }
+        }
+    }
+
+    &:last-of-type {
+        order: 10;
+    }
+}

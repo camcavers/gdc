@@ -1,0 +1,59 @@
+.content-info {
+    padding: $side-margin * 1.5;
+
+    .col {
+        display: flex;
+        flex-direction: column;
+
+        > .col {
+            margin-bottom: 1em;
+
+            &:first-of-type {
+                order: 3;
+
+                p {
+                    font-size: 0.785em;
+                    font-weight: 200;
+                    line-height: 1.6364;
+                }
+            }
+
+            &:nth-of-type(2) {
+                order: 1;
+            }
+
+            &:nth-of-type(3) {
+                order: 2;
+            }
+        }
+
+        &.brand {
+            flex: 1;
+            justify-content: flex-end;
+        }
+    }
+
+    @include breakpoint(tablet) {
+        flex-direction: row;
+        padding: 3.5vw $side-margin 1.5vw;
+
+        .col {
+            flex: inherit;
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 0;
+
+            > .col {
+                flex: inherit;
+
+                &.brand {
+                    order: inherit;
+                }
+            }
+
+            &:first-of-type {
+                padding: 0;
+            }
+        }
+    }
+}
